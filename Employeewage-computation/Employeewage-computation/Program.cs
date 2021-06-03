@@ -6,10 +6,8 @@ namespace Employeewage_computation
     {
         public const int IS_PART_TIME = 1;
         public const int IS_FULL_TIME = 2;
-        public const int EMP_RATE_PER_HOUR = 20;
-        public const int MAX_Working_Days = 20;
-        public const int MAX_WORKING_HRS = 100;
-        public static int ComputeEmpWage()
+        
+        public static int ComputeEmpWage(string company, int EMP_RATE_PER_HOUR, int MAX_Working_Days, int MAX_WORKING_HRS )
         {
             
             int empHrs = 0;
@@ -33,15 +31,17 @@ namespace Employeewage_computation
                         break;
                 }
                 TotalEmpHrs += empHrs;
-                Console.WriteLine("Working days:" + totalWorkingDays + "Employee working hours:" + empHrs);
+                Console.WriteLine("Working days: " + totalWorkingDays + " Employee working hours: " + empHrs);
             }
             int TotalEmpWage = TotalEmpHrs * EMP_RATE_PER_HOUR;
-            Console.WriteLine("Total wage of employee :" + TotalEmpWage);
+            Console.WriteLine($"Total wage of {company} employee :" + TotalEmpWage);
             return TotalEmpWage;
         }
         static void Main(string[] args)
         {
-            ComputeEmpWage();
+            ComputeEmpWage("Citigroup",400,20,160);
+            ComputeEmpWage("Goldmann Sachs",800, 22, 176);
+
         }
     }
 }
